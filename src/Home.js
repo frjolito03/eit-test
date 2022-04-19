@@ -44,7 +44,12 @@ export default function Home({ navigation, route }) {
                 response.data.libra_cobre,
             ]
             )
-        }).catch(err => console.log(err))
+            console.log('estoy recargando')
+        }).catch(err => {
+            alert('tenemos problemas de conexion')
+             setLoad(false)
+        }
+            )
 
         await setLoad(false)
 
@@ -58,6 +63,10 @@ export default function Home({ navigation, route }) {
         <ListItem item = {item} navigation={navigation}/>
        
         )
+    }
+
+    const Recargar=()=>{
+        LoadData()
     }
 
     return (
